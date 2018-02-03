@@ -1,0 +1,18 @@
+/* navbar */
+.fa-dribbble {
+    color: orange;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+    color: orange;
+}
+
+
+/* jumbotron */
+.jumbotron {
+    margin-top: 30px;
+}
+
+/* card */
+.card-header {
+    background-color: rgb(255, 178, 85);
+}

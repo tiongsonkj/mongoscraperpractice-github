@@ -1,0 +1,92 @@
+{{!-- navbar --}}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+    <div class="container">
+        <a class="navtext navbar-brand js-scroll-trigger" href="#page-top"><i class="fab fa-dribbble fa-lg"></i> Home</a>
+
+        <div class="navbar-collapse collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto justify-content-end">
+                <li class="navtext nav-item px-2">
+                    <a class="nav-link active" href="#">Saved Articles</a>
+                </li>
+                <li class="navtext nav-item px-2">
+                    <button class="btn btn-outline-warning" type="submit" id="scrape-btn">SCRAPE ARTICLES!</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{{!-- jumbotron --}}
+<div class="jumbotron">
+        <h1 class="display-4">NBA Headlines</h1>
+        <hr>
+        <p>This is the handlebars example</p>
+</div>
+
+{{!-- cards for each headline --}}
+<section class="container dashboard wrapper">
+    <div class="row">
+        <div class="col">
+            <div class="col-12">
+                {{#each nbaNews}}
+                    <div class="card">
+                        <div class="card-header text-right">
+                            {{!-- <button class="btn btn-primary" data-target="#noteModal" data-toggle="modal">ARTICLE NOTES</button> --}}
+                            <button class="btn btn-success">SAVE ARTICLE</button>
+                            <button class="btn btn-danger" id="deleteart" data-id={{this._id}}>DELETE ARTICLE</button>
+                        </div>
+                        <div class="card-body text-center">
+                            <p>{{this.title}}</p>
+                            <hr>
+                            <p>Link: "{{this.link}}"</p>
+                            <br>
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputNote">Add Note:</label>
+                                    <input type="text" class="form-control" id="inputNotes">
+                                    
+                                </div>
+                                <button type="submit" class="btn btn-success" id="makenote">Add Note</button>
+                            </form>
+                            <br><br>
+
+                            <p>Notes for article: {{this._id}}</p><hr>
+                            {{!-- this div will display the notes that were saved. Each note will have a button that will delete the note. --}}
+                            <div id="notes">
+
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+
+                     {{!-- each card will have this modal --}}
+                     {{!-- <div class="modal" id="noteModal" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>Create a new note! for this article: {{this._id}}</h5>
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                </div> --}}
+                                {{!-- modal body --}}
+                                {{!-- <div class="modal-body"> --}}
+                                    {{!-- div block that contains the notes for the article --}}
+                                    {{!-- <div id="art-notes"></div> --}}
+                                    {{!-- form for the article note --}}
+                                    {{!-- <form action='/submit' method='post'>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="New Note" type="text" id="inputNotes" name="inputNotes">
+                                        </div>
+                                    </form>
+                                </div> --}}
+                                {{!-- modal footer --}}
+                                {{!-- <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" id="makenote">SAVE NOTE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
